@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>DJUN | Automação Sem Complicação</title>
+  <meta name="description" content="O DJUN é a plataforma mais simples para automatizar processos repetitivos. Sem programar, sem jargões, direto ao ponto." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: "Inter", sans-serif; -webkit-tap-highlight-color: transparent; }
+    button, a { cursor: pointer; touch-action: manipulation; }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .anim-in { animation: fadeInUp .5s ease both; }
+    @keyframes softBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+    .anim-bounce { animation: softBounce 2s ease-in-out infinite; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 overflow-x-hidden">
+
+  <!-- Navbar -->
+  <nav class="max-w-7xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between sticky top-0 bg-slate-50/80 backdrop-blur-md z-50">
+    <a href="#" class="flex items-center gap-2">
+      <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-200">
+        <span class="text-white font-black italic text-xl">D</span>
+      </div>
+      <span class="text-2xl font-black text-slate-900 tracking-tight">DJUN</span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#features" class="text-sm font-bold text-slate-600 hover:text-indigo-600 transition-colors">Funcionalidades</a>
+      <a href="#integrations" class="text-sm font-bold text-slate-600 hover:text-indigo-600 transition-colors">Integrações</a>
+      <a href="#pricing" class="text-sm font-bold text-slate-600 hover:text-indigo-600 transition-colors">Planos</a>
+    </div>
+
+    <div class="flex items-center gap-3 md:gap-4">
+      <a href="mailto:suporte@djun.com.br" class="bg-indigo-600 text-white px-5 md:px-6 py-2.5 rounded-xl font-bold shadow-xl shadow-indigo-100 hover:bg-indigo-700 transition-all hover:-translate-y-0.5 active:scale-95">
+        Falar com a gente
+      </a>
+      <button id="menuToggle" class="md:hidden p-2 text-slate-600 active:bg-slate-100 rounded-lg" aria-label="Menu">
+        <svg id="iconMenu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg id="iconClose" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden fixed inset-0 z-40 bg-white md:hidden pt-24 px-6">
+    <div class="flex flex-col gap-6 text-center">
+      <a href="#features" class="mobile-link text-2xl font-black text-slate-900">Funcionalidades</a>
+      <a href="#integrations" class="mobile-link text-2xl font-black text-slate-900">Integrações</a>
+      <a href="#pricing" class="mobile-link text-2xl font-black text-slate-900">Planos</a>
+      <hr class="border-slate-100" />
+      <a href="mailto:suporte@djun.com.br" class="text-xl font-bold text-indigo-600">Falar com a gente</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="max-w-7xl mx-auto px-6 pt-12 md:pt-20 pb-32 grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
+    <div class="space-y-6 md:space-y-8 text-center lg:text-left">
+      <div class="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 px-4 py-2 rounded-full text-xs md:text-sm font-bold anim-bounce">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        Automação sem código para todos
+      </div>
+      <h1 class="text-4xl md:text-7xl font-black text-slate-900 leading-[1.1] tracking-tight">
+        Conecte seus apps <br />
+        <span class="text-indigo-600">em segundos.</span>
+      </h1>
+      <p class="text-lg md:text-xl text-slate-500 max-w-xl mx-auto lg:mx-0">
+        O DJUN é a plataforma mais simples para automatizar processos repetitivos. Sem programar, sem jargões, direto ao ponto.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
+        <a href="mailto:suporte@djun.com.br" class="w-full sm:w-auto bg-indigo-600 text-white px-8 md:px-10 py-4 md:py-5 rounded-2xl font-black text-lg md:text-xl shadow-2xl shadow-indigo-100 hover:bg-indigo-700 active:scale-95 transition-all flex items-center justify-center gap-3 group">
+          Começar agora
+          <svg class="group-hover:translate-x-1 transition-transform" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <p class="text-slate-400 text-sm font-medium">Cartão de crédito não necessário.</p>
+      </div>
+    </div>
+
+    <!-- Hero animated card -->
+    <div class="relative">
+      <div class="bg-white p-3 md:p-4 rounded-[2rem] shadow-2xl border border-slate-100 overflow-hidden relative z-10">
+        <div class="bg-slate-50 p-4 md:p-6 rounded-2xl border border-slate-100 space-y-6">
+          <div id="flowHeader" class="flex items-center justify-between border-b border-slate-200 pb-4 anim-in">
+            <div class="flex items-center gap-2 md:gap-3">
+              <div class="w-8 h-8 md:w-10 md:h-10 bg-white border border-slate-100 rounded-xl p-1.5 flex items-center justify-center shadow-sm">
+                <img id="fromLogo" alt="" class="w-full h-full object-contain" />
+              </div>
+              <span id="fromName" class="font-bold text-sm md:text-base"></span>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-300"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <div class="flex items-center gap-2 md:gap-3">
+              <span id="toName" class="font-bold text-sm md:text-base"></span>
+              <div class="w-8 h-8 md:w-10 md:h-10 bg-white border border-slate-100 rounded-xl p-1.5 flex items-center justify-center shadow-sm">
+                <img id="toLogo" alt="" class="w-full h-full object-contain" />
+              </div>
+            </div>
+          </div>
+          <div id="flowDetails" class="space-y-3 anim-in">
+            <div class="w-full bg-white border border-slate-100 px-4 py-2.5 md:py-3 rounded-lg flex items-center gap-2 shadow-sm">
+              <span class="text-[10px] md:text-xs font-black text-indigo-600 uppercase tracking-widest">Gatilho</span>
+              <span id="triggerText" class="text-xs md:text-sm text-slate-700 font-medium truncate"></span>
+            </div>
+            <div class="w-full bg-white border border-slate-100 px-4 py-2.5 md:py-3 rounded-lg flex items-center gap-2 shadow-sm">
+              <span class="text-[10px] md:text-xs font-black text-emerald-600 uppercase tracking-widest">Ação</span>
+              <span id="actionText" class="text-xs md:text-sm text-slate-700 font-medium truncate"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="absolute -top-10 -right-10 w-32 md:w-40 h-32 md:h-40 bg-indigo-400/20 blur-3xl rounded-full"></div>
+      <div class="absolute -bottom-10 -left-10 w-48 md:w-64 h-48 md:h-64 bg-emerald-400/10 blur-3xl rounded-full"></div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="bg-white py-16 md:py-24 border-y border-slate-100">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12 md:mb-16 space-y-4">
+        <h2 class="text-3xl md:text-4xl font-black text-slate-900">Por que o DJUN é diferente?</h2>
+        <p class="text-slate-500 max-w-2xl mx-auto">Criamos a plataforma pensando em quem nunca ouviu falar de API ou JSON.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 md:gap-12">
+        <div class="space-y-4 text-center md:text-left">
+          <div class="w-14 h-14 md:w-16 md:h-16 bg-slate-50 rounded-2xl flex items-center justify-center mb-4 md:mb-6 mx-auto md:mx-0">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-600"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3 class="text-lg md:text-xl font-bold text-slate-900">Simplicidade Absoluta</h3>
+          <p class="text-sm md:text-base text-slate-500 leading-relaxed">Fluxo guiado passo a passo com explicações didáticas em cada etapa do processo.</p>
+        </div>
+        <div class="space-y-4 text-center md:text-left">
+          <div class="w-14 h-14 md:w-16 md:h-16 bg-slate-50 rounded-2xl flex items-center justify-center mb-4 md:mb-6 mx-auto md:mx-0">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-600"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="text-lg md:text-xl font-bold text-slate-900">Totalmente Seguro</h3>
+          <p class="text-sm md:text-base text-slate-500 leading-relaxed">Utilizamos os mais altos padrões de segurança para garantir que seus dados estejam protegidos.</p>
+        </div>
+        <div class="space-y-4 text-center md:text-left">
+          <div class="w-14 h-14 md:w-16 md:h-16 bg-slate-50 rounded-2xl flex items-center justify-center mb-4 md:mb-6 mx-auto md:mx-0">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-500"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+          </div>
+          <h3 class="text-lg md:text-xl font-bold text-slate-900">Rápido de Implementar</h3>
+          <p class="text-sm md:text-base text-slate-500 leading-relaxed">Configure sua primeira automação em menos de 2 minutos e comece a ganhar tempo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Perks Grid -->
+  <section class="py-16 md:py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div class="space-y-8 md:space-y-12">
+          <h2 class="text-3xl md:text-4xl font-black text-slate-900 leading-tight">
+            Funcionalidades poderosas, <br />
+            <span class="text-indigo-600">interface intuitiva.</span>
+          </h2>
+          <div class="space-y-6 md:space-y-8">
+            <div class="flex gap-4 md:gap-6 items-start text-left">
+              <div class="w-12 h-12 md:w-14 md:h-14 bg-white rounded-2xl flex items-center justify-center shadow-lg border border-slate-100 shrink-0">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-600"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z"/></svg>
+              </div>
+              <div>
+                <h3 class="text-lg md:text-xl font-bold text-slate-900 mb-1 md:mb-2 leading-tight">Wizard Guiado</h3>
+                <p class="text-sm md:text-base text-slate-500 leading-relaxed">Monte cada automação passo a passo: escolha o gatilho, selecione os campos e defina a ação. Sem complicação.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 md:gap-6 items-start text-left">
+              <div class="w-12 h-12 md:w-14 md:h-14 bg-white rounded-2xl flex items-center justify-center shadow-lg border border-slate-100 shrink-0">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-600"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <div>
+                <h3 class="text-lg md:text-xl font-bold text-slate-900 mb-1 md:mb-2 leading-tight">Zero Código (Realmente)</h3>
+                <p class="text-sm md:text-base text-slate-500 leading-relaxed">Você não precisa entender de webhooks, APIs ou scripts. A gente cuida da parte técnica — você só define o que quer que aconteça.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 md:gap-6 items-start text-left">
+              <div class="w-12 h-12 md:w-14 md:h-14 bg-white rounded-2xl flex items-center justify-center shadow-lg border border-slate-100 shrink-0">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-600"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>
+              </div>
+              <div>
+                <h3 class="text-lg md:text-xl font-bold text-slate-900 mb-1 md:mb-2 leading-tight">Filtros Inteligentes</h3>
+                <p class="text-sm md:text-base text-slate-500 leading-relaxed">Crie regras simples: 'Somente envie para o Slack se o valor for maior que R$ 100'.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3 md:gap-4">
+          <div class="space-y-3 md:space-y-4">
+            <div class="bg-white p-6 md:p-8 rounded-[2rem] shadow-xl border border-slate-100 flex flex-col items-center text-center">
+              <span class="text-3xl md:text-4xl mb-3 md:mb-4">🚀</span>
+              <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">Configuração Instantânea</p>
+            </div>
+            <div class="bg-indigo-600 p-6 md:p-8 rounded-[2rem] shadow-xl text-white flex flex-col items-center text-center">
+              <span class="text-3xl md:text-4xl mb-3 md:mb-4">🛡️</span>
+              <p class="font-bold text-sm md:text-base leading-tight">Segurança Bancária</p>
+            </div>
+          </div>
+          <div class="space-y-3 md:space-y-4 pt-6 md:pt-8">
+            <div class="bg-emerald-500 p-6 md:p-8 rounded-[2rem] shadow-xl text-white flex flex-col items-center text-center">
+              <span class="text-3xl md:text-4xl mb-3 md:mb-4">📊</span>
+              <p class="font-bold text-sm md:text-base leading-tight">Dashboard de Logs</p>
+            </div>
+            <div class="bg-white p-6 md:p-8 rounded-[2rem] shadow-xl border border-slate-100 flex flex-col items-center text-center">
+              <span class="text-3xl md:text-4xl mb-3 md:mb-4">📞</span>
+              <p class="font-bold text-slate-900 text-sm md:text-base leading-tight">Suporte Humano</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Integrations -->
+  <section id="integrations" class="py-16 md:py-24 px-6 bg-white border-y border-slate-100">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 md:mb-16">
+        <div class="space-y-4">
+          <h2 class="text-3xl md:text-4xl font-black text-slate-900">Integre com tudo</h2>
+          <p class="text-slate-500 max-w-xl">Começamos pelos apps que movem negócios brasileiros — WhatsApp, Discord e Routeasy — e novas integrações chegam toda semana.</p>
+        </div>
+        <a href="mailto:suporte@djun.com.br" class="inline-flex items-center gap-2 text-indigo-600 font-bold hover:underline">
+          Sugerir integração
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6" id="integrationsGrid"></div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="bg-slate-50 py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12 md:mb-16 space-y-4">
+        <h2 class="text-3xl md:text-5xl font-black text-slate-900">Preço justo para cada etapa</h2>
+        <p class="text-slate-500 text-base md:text-lg">Comece grátis e escale conforme sua automação trabalha por você.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 md:gap-8" id="pricingGrid"></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 md:py-24 px-6">
+    <div class="max-w-5xl mx-auto bg-indigo-600 rounded-[2.5rem] md:rounded-[3rem] p-10 md:p-20 text-center text-white relative overflow-hidden">
+      <div class="relative z-10 space-y-6 md:space-y-8">
+        <h2 class="text-3xl md:text-6xl font-black leading-tight">
+          Chega de perder tempo <br /> com tarefas manuais.
+        </h2>
+        <a href="mailto:suporte@djun.com.br" class="inline-block w-full sm:w-auto bg-white text-indigo-600 px-8 md:px-12 py-4 md:py-5 rounded-2xl font-black text-lg md:text-xl hover:bg-indigo-50 active:scale-95 transition-all shadow-xl shadow-indigo-900/20">
+          Criar meu fluxo agora
+        </a>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 text-xs md:text-sm font-bold opacity-80">
+          <span class="flex items-center gap-2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Grátis para sempre
+          </span>
+          <span class="flex items-center gap-2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Sem cartão
+          </span>
+          <span class="flex items-center gap-2 text-rose-300">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            Feito com amor no Brasil
+          </span>
+        </div>
+      </div>
+      <svg width="300" height="300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute -bottom-20 -right-20 text-white/5 rotate-12 pointer-events-none"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="max-w-7xl mx-auto px-6 py-12 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-2 opacity-50">
+      <div class="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center">
+        <span class="text-white font-black italic text-sm">D</span>
+      </div>
+      <span class="text-xl font-black text-slate-900 tracking-tight">DJUN</span>
+    </div>
+    <p class="text-slate-400 text-xs md:text-sm text-center">© <span id="year"></span> DJUN Automações. Todos os direitos reservados.</p>
+    <div class="flex items-center gap-4 md:gap-6 text-slate-400 text-xs md:text-sm font-medium">
+      <a href="termos.html" class="hover:text-indigo-600 transition-colors">Termos</a>
+      <a href="privacidade.html" class="hover:text-indigo-600 transition-colors">Privacidade</a>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const iconMenu = document.getElementById('iconMenu');
+    const iconClose = document.getElementById('iconClose');
+    const closeMenu = () => { mobileMenu.classList.add('hidden'); iconMenu.classList.remove('hidden'); iconClose.classList.add('hidden'); };
+    menuToggle.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('hidden');
+      iconMenu.classList.toggle('hidden', !open);
+      iconClose.classList.toggle('hidden', open);
+    });
+    document.querySelectorAll('.mobile-link').forEach(a => a.addEventListener('click', closeMenu));
+
+    // Hero rotating flow
+    const heroAppLogos = {
+      WhatsApp: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg',
+      Discord: 'https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png',
+      RoutEasy: 'routeasy.png',
+      'Google Sheets': 'https://upload.wikimedia.org/wikipedia/commons/a/ae/Google_Sheets_2020_Logo.svg'
+    };
+    const heroFlows = [
+      { from: 'RoutEasy', to: 'WhatsApp', trigger: 'Quando: nova rota criada no RoutEasy', action: 'Enviar mensagem pro cliente no WhatsApp' },
+      { from: 'RoutEasy', to: 'Google Sheets', trigger: 'Quando: nova rota criada no RoutEasy', action: 'Adicionar nova linha na planilha do Google Sheets' },
+      { from: 'RoutEasy', to: 'Discord', trigger: 'Quando: entrega concluída', action: 'Postar atualização no canal do Discord' },
+      { from: 'WhatsApp', to: 'Google Sheets', trigger: 'Quando: nova mensagem recebida no WhatsApp', action: 'Adicionar nova linha na planilha do Google Sheets' },
+      { from: 'RoutEasy', to: 'WhatsApp', trigger: 'Quando: motorista em rota', action: 'Avisar cliente sobre o status no WhatsApp' }
+    ];
+    let flowIdx = 0;
+    function renderFlow() {
+      const f = heroFlows[flowIdx];
+      const fromLogo = document.getElementById('fromLogo');
+      const toLogo = document.getElementById('toLogo');
+      fromLogo.src = heroAppLogos[f.from]; fromLogo.alt = f.from;
+      toLogo.src = heroAppLogos[f.to]; toLogo.alt = f.to;
+      document.getElementById('fromName').textContent = f.from;
+      document.getElementById('toName').textContent = f.to;
+      document.getElementById('triggerText').textContent = f.trigger;
+      document.getElementById('actionText').textContent = f.action;
+      const header = document.getElementById('flowHeader');
+      const details = document.getElementById('flowDetails');
+      header.classList.remove('anim-in'); details.classList.remove('anim-in');
+      void header.offsetWidth; void details.offsetWidth;
+      header.classList.add('anim-in'); details.classList.add('anim-in');
+    }
+    renderFlow();
+    setInterval(() => { flowIdx = (flowIdx + 1) % heroFlows.length; renderFlow(); }, 2800);
+
+    // Integrations
+    const apps = [
+      { name: 'WhatsApp Business', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg', status: 'AVAILABLE' },
+      { name: 'Discord', logo: 'https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png', status: 'AVAILABLE' },
+      { name: 'RoutEasy', logo: 'routeasy.png', status: 'AVAILABLE' },
+      { name: 'Google Sheets', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/ae/Google_Sheets_2020_Logo.svg', status: 'AVAILABLE' },
+      { name: 'Slack', logo: 'https://picsum.photos/seed/slack/100', status: 'COMING_SOON' },
+      { name: 'Olist', logo: 'https://picsum.photos/seed/olist/100', status: 'COMING_SOON' },
+      { name: 'Trello', logo: 'https://picsum.photos/seed/trello/100', status: 'COMING_SOON' }
+    ];
+    const statusBadge = (s) => s === 'AVAILABLE'
+      ? '<span class="px-2.5 py-1 rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-widest bg-emerald-100 text-emerald-700">DISPONÍVEL</span>'
+      : '<span class="px-2.5 py-1 rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-widest bg-slate-200 text-slate-400">EM BREVE</span>';
+    const grid = document.getElementById('integrationsGrid');
+    apps.forEach(app => {
+      grid.insertAdjacentHTML('beforeend', `
+        <div class="bg-slate-50 p-6 md:p-8 rounded-[2.5rem] border border-slate-100 flex flex-col items-center text-center shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all group">
+          <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-white p-3 md:p-4 mb-4 flex items-center justify-center overflow-hidden shadow-sm border border-slate-200">
+            <img src="${app.logo}" alt="${app.name}" class="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all" />
+          </div>
+          <h4 class="font-bold text-slate-800 text-sm mb-2">${app.name}</h4>
+          ${statusBadge(app.status)}
+        </div>
+      `);
+    });
+    ['Instagram Ads', 'Pipefy CRM', 'Bling ERP'].forEach(label => {
+      grid.insertAdjacentHTML('beforeend', `
+        <div class="bg-slate-50 border border-dashed border-slate-200 p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] flex flex-col items-center justify-center text-center opacity-60 hover:opacity-100 transition-opacity">
+          <div class="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-white mb-3 md:mb-4 flex items-center justify-center border border-slate-100 shadow-sm">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-300"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <span class="text-xs md:text-sm font-bold text-slate-400">${label}</span>
+          <span class="mt-1 text-[8px] md:text-[9px] font-black uppercase text-indigo-400 tracking-widest">Em Breve</span>
+        </div>
+      `);
+    });
+
+    // Pricing
+    const pricing = [
+      {
+        name: 'Iniciante', price: '0', desc: 'Para quem está começando a automatizar os primeiros passos do negócio.',
+        features: ['250 execuções mensais','15 automações ativas','Todos os apps essenciais','Atualização a cada 15 min','Histórico de logs: 7 dias','Filtros de automação simples'],
+        buttonText: 'Falar com a gente', highlighted: false
+      },
+      {
+        name: 'Profissional', price: '97', desc: 'Para negócios que precisam de velocidade, escala total e suporte rápido.',
+        features: ['Execuções Ilimitadas','Automações Ilimitadas','Apps Premium & Novos Betas','Atualização Instantânea','Suporte prioritário WhatsApp','Histórico de logs: 90 dias','Filtros avançados e pastas'],
+        buttonText: 'Falar com a gente', highlighted: true
+      },
+      {
+        name: 'Corporativo', price: 'Custom', desc: 'Soluções personalizadas para grandes volumes e requisitos de segurança.',
+        features: ['SLA garantido de 99.9%','Gerente de Conta Dedicado','Treinamento para a Equipe','Segurança Enterprise (SSO)','Ambiente de teste (Staging)','Consultoria de automação'],
+        buttonText: 'Falar com Especialista', highlighted: false
+      }
+    ];
+    const checkIcon = (cls) => `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="${cls}"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`;
+    const pricingGrid = document.getElementById('pricingGrid');
+    pricing.forEach(p => {
+      const wrap = p.highlighted
+        ? 'bg-indigo-600 text-white shadow-2xl shadow-indigo-200'
+        : 'bg-white border border-slate-200 text-slate-900 shadow-sm';
+      const descCls = p.highlighted ? 'text-indigo-100' : 'text-slate-500';
+      const priceSuffix = p.highlighted ? 'text-indigo-200' : 'text-slate-400';
+      const featureCheck = p.highlighted ? 'text-indigo-200' : 'text-indigo-600';
+      const btnCls = p.highlighted
+        ? 'bg-white text-indigo-600 hover:bg-indigo-50 shadow-indigo-900/30'
+        : 'bg-slate-900 text-white hover:bg-indigo-600 shadow-slate-200';
+      const star = p.highlighted ? `
+        <div class="bg-amber-400 text-indigo-900 text-[10px] md:text-[11px] font-black px-3 md:px-4 py-1.5 rounded-full w-fit mb-4 md:mb-6 uppercase tracking-widest flex items-center gap-2">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Recomendado
+        </div>` : '';
+      const priceMarkup = p.price === 'Custom'
+        ? `<span class="text-5xl md:text-6xl font-black tracking-tighter">Custom</span>`
+        : `<span class="text-sm font-bold opacity-60">R$</span>
+           <span class="text-5xl md:text-6xl font-black tracking-tighter">${p.price}</span>
+           <span class="text-sm font-bold opacity-60 ${priceSuffix}">/mês</span>`;
+      pricingGrid.insertAdjacentHTML('beforeend', `
+        <div class="p-8 md:p-10 rounded-[2.5rem] md:rounded-[3rem] flex flex-col transition-all hover:scale-[1.03] ${wrap}">
+          ${star}
+          <h3 class="text-2xl md:text-3xl font-black mb-2 leading-tight">${p.name}</h3>
+          <p class="text-sm mb-8 md:mb-10 leading-relaxed ${descCls}">${p.desc}</p>
+          <div class="mb-8 md:mb-10 flex items-baseline gap-1">${priceMarkup}</div>
+          <ul class="space-y-3 md:space-y-4 mb-10 md:mb-12 flex-1 text-left">
+            ${p.features.map(f => `<li class="flex items-center gap-3 md:gap-4 text-xs md:text-sm font-semibold">${checkIcon(featureCheck)}${f}</li>`).join('')}
+          </ul>
+          <a href="mailto:suporte@djun.com.br" class="text-center w-full py-4 md:py-5 rounded-[1.5rem] md:rounded-3xl font-black text-lg md:text-xl transition-all shadow-xl active:scale-95 ${btnCls}">${p.buttonText}</a>
+        </div>
+      `);
+    });
+  </script>
+</body>
+</html>
